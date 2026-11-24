@@ -50,10 +50,7 @@
 
         <!-- Menu Desktop -->
         <nav class="hidden md:flex items-center space-x-5 text-sm font-medium text-stone-600">
-          <button onclick="switchTab('calculadora')" id="nav-calculadora" class="tab-btn tab-active py-5 transition-colors hover:text-emerald-700">
-            <i class="fa-solid fa-calculator mr-1.5"></i>Calculadora 5 Rs
-          </button>
-          <button onclick="switchTab('economia')" id="nav-economia" class="tab-btn py-5 transition-colors hover:text-emerald-700">
+          <button onclick="switchTab('economia')" id="nav-economia" class="tab-btn tab-active py-5 transition-colors hover:text-emerald-700">
             <i class="fa-solid fa-arrows-spin mr-1.5"></i>Economia Circular
           </button>
           <button onclick="switchTab('descarte')" id="nav-descarte" class="tab-btn py-5 transition-colors hover:text-emerald-700">
@@ -80,8 +77,7 @@
 
       <!-- Menu Mobile (Abas horizontais) -->
       <div class="flex md:hidden overflow-x-auto space-x-4 border-t border-stone-100 text-xs font-medium text-stone-600 no-scrollbar">
-        <button onclick="switchTab('calculadora')" id="mob-calculadora" class="tab-btn-mob tab-active py-3 whitespace-nowrap px-2">Calculadora 5 Rs</button>
-        <button onclick="switchTab('economia')" id="mob-economia" class="tab-btn-mob py-3 whitespace-nowrap px-2">Economia Circular</button>
+        <button onclick="switchTab('economia')" id="mob-economia" class="tab-btn-mob tab-active py-3 whitespace-nowrap px-2">Economia Circular</button>
         <button onclick="switchTab('descarte')" id="mob-descarte" class="tab-btn-mob py-3 whitespace-nowrap px-2">Guia de Descarte</button>
         <button onclick="switchTab('empresas')" id="mob-empresas" class="tab-btn-mob py-3 whitespace-nowrap px-2">Produção Verde</button>
         <button onclick="switchTab('quizturma')" id="mob-quizturma" class="tab-btn-mob py-3 whitespace-nowrap px-2 font-bold text-blue-700">
@@ -124,85 +120,9 @@
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 
     <!-- ========================================== -->
-    <!-- ABA 1: CALCULADORA DOS 5 Rs                -->
+    <!-- ABA 1: ECONOMIA LINEAR VS CIRCULAR         -->
     <!-- ========================================== -->
-    <section id="tab-calculadora" class="tab-content space-y-8">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
-        <div>
-          <h2 class="text-2xl font-bold text-stone-900">Calculadora de Consumo Consciente (5 Rs)</h2>
-          <p class="text-stone-600 text-sm mt-1">Marque as práticas que você já adota no dia a dia para avaliar seu índice sustentável.</p>
-        </div>
-        <button onclick="resetChecklist()" class="self-start sm:self-auto text-xs font-medium text-stone-500 hover:text-stone-800 px-3 py-2 rounded-lg border border-stone-300 bg-white">
-          <i class="fa-solid fa-rotate-left mr-1"></i>Limpar seleção
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Lista de Hábitos -->
-        <div class="lg:col-span-2 space-y-4" id="checklist-container">
-          <!-- Renderizado via JS -->
-        </div>
-
-        <!-- Painel de Resultado -->
-        <div class="lg:col-span-1">
-          <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm sticky top-24 space-y-6">
-            <div class="text-center space-y-2">
-              <span class="text-xs font-semibold uppercase tracking-wider text-stone-400">Seu Índice Sustentável</span>
-              <div class="relative inline-flex items-center justify-center">
-                <svg class="w-32 h-32 transform -rotate-90">
-                  <circle cx="64" cy="64" r="56" stroke="#e7e5e4" stroke-width="10" fill="transparent" />
-                  <circle id="score-circle" cx="64" cy="64" r="56" stroke="#059669" stroke-width="10" fill="transparent"
-                          stroke-dasharray="351.8" stroke-dashoffset="351.8" stroke-linecap="round" class="transition-all duration-500" />
-                </svg>
-                <span id="score-percent" class="absolute text-3xl font-extrabold text-stone-900">0%</span>
-              </div>
-              <h3 id="score-title" class="text-lg font-bold text-stone-800">Iniciante Consciente</h3>
-              <p id="score-desc" class="text-xs text-stone-500 leading-relaxed">
-                Comece marcando os hábitos ao lado para descobrir seu perfil de consumo e receber recomendações.
-              </p>
-            </div>
-
-            <!-- Próximo Passo Recomendado -->
-            <div class="bg-blue-50 border border-blue-200/80 rounded-xl p-4 space-y-1.5">
-              <div class="flex items-center gap-2 text-blue-800 font-semibold text-xs">
-                <i class="fa-solid fa-lightbulb text-blue-600"></i>
-                <span>Dica Prática Sugerida:</span>
-              </div>
-              <p id="next-tip" class="text-xs text-blue-900/80 leading-relaxed">
-                Antes de comprar algo novo, pergunte-se: "Eu realmente preciso disso agora ou posso reutilizar algo que já tenho?"
-              </p>
-            </div>
-
-            <!-- Impacto Anual Estimado -->
-            <div class="bg-emerald-50/80 border border-emerald-200 rounded-xl p-4 space-y-2.5">
-              <div class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
-                <i class="fa-solid fa-earth-americas text-emerald-600"></i>
-                <span>Impacto Anual Estimado:</span>
-              </div>
-              <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="bg-white rounded-lg p-2 border border-emerald-100">
-                  <span id="impact-water" class="block text-sm font-extrabold text-blue-700">0 L</span>
-                  <span class="text-[10px] text-stone-500">Água poupada</span>
-                </div>
-                <div class="bg-white rounded-lg p-2 border border-emerald-100">
-                  <span id="impact-co2" class="block text-sm font-extrabold text-emerald-700">0 kg</span>
-                  <span class="text-[10px] text-stone-500">CO₂ evitado</span>
-                </div>
-                <div class="bg-white rounded-lg p-2 border border-emerald-100">
-                  <span id="impact-plastic" class="block text-sm font-extrabold text-teal-600">0 un</span>
-                  <span class="text-[10px] text-stone-500">Descartáveis</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- ABA 2: ECONOMIA LINEAR VS CIRCULAR         -->
-    <!-- ========================================== -->
-    <section id="tab-economia" class="tab-content hidden space-y-8">
+    <section id="tab-economia" class="tab-content space-y-8">
       <div class="border-b border-stone-200 pb-4">
         <h2 class="text-2xl font-bold text-stone-900">Simulador: Economia Linear vs. Circular</h2>
         <p class="text-stone-600 text-sm mt-1">Alterne entre os dois modelos econômicos e escolha um produto para comparar seu ciclo de vida.</p>
@@ -577,13 +497,13 @@
 
   <!-- Rodapé -->
   <footer id="main-footer" class="bg-white border-t border-stone-200 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
       <div class="flex items-center gap-2">
         <i class="fa-solid fa-earth-americas text-emerald-600 text-base"></i>
         <span>Protótipo Educacional • Objetivo de Desenvolvimento Sustentável 12 (Agenda 2030)</span>
       </div>
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-right">
-        <span class="font-semibold text-stone-700">Equipe: Leandro, Guilherme, Neto, Kauã</span>
+        <span class="text-base sm:text-lg font-extrabold text-blue-900 tracking-tight">Equipe: Leandro, Guilherme, Neto, Kauã</span>
         <span class="hidden sm:inline text-stone-300">•</span>
         <span>EcoCiclo © 2026</span>
       </div>
@@ -673,68 +593,68 @@
     import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
     // ==========================================
-    // 1. AS 5 QUESTÕES DO QUIZ DA TURMA (DESCARTE SIMPLES)
+    // 1. AS 5 QUESTÕES DO QUIZ DA TURMA (5 Rs DO CONSUMO CONSCIENTE)
     // ==========================================
     const classQuizQuestions = [
       {
         id: "q1",
-        shortLabel: "Q1 • Garrafa PET",
-        question: "Em qual lixeira da coleta seletiva devemos jogar uma garrafa PET vazia?",
+        shortLabel: "Q1 • Repensar",
+        question: "Qual atitude representa melhor o princípio de 'Repensar' antes de ir às compras?",
         options: [
-          "Lixeira Azul (Papel)",
-          "Lixeira Vermelha (Plástico)",
-          "Lixeira Verde (Vidro)"
+          "Comprar tudo o que estiver em promoção por impulso",
+          "Fazer uma lista de compras e pesquisar se a marca tem boas práticas ambientais",
+          "Jogar fora produtos antigos antes mesmo de acabarem"
         ],
         correct: 1,
-        explanation: "A lixeira vermelha é destinada aos plásticos, como garrafas PET, potes e embalagens plásticas limpas."
+        explanation: "Repensar envolve planejar refeições e compras com lista para evitar desperdícios e escolher empresas responsáveis."
       },
       {
         id: "q2",
-        shortLabel: "Q2 • Óleo de Cozinha",
-        question: "O que fazer com o óleo de cozinha usado depois que ele esfria?",
+        shortLabel: "Q2 • Recusar",
+        question: "Como podemos praticar o 'Recusar' no dia a dia para evitar plásticos de uso único?",
         options: [
-          "Jogar direto no ralo da pia",
-          "Guardar em uma garrafa PET e levar a um ponto de coleta",
-          "Jogar no quintal ou na terra"
+          "Levar a própria ecobag e garrafa reutilizável (squeeze), recusando sacolas e copos descartáveis",
+          "Pegar várias sacolas plásticas extras no supermercado",
+          "Usar canudos e talheres descartáveis em todas as refeições"
         ],
-        correct: 1,
-        explanation: "O óleo entope encanamentos e contamina a água. Em pontos de coleta, ele vira sabão ou biodiesel."
+        correct: 0,
+        explanation: "Recusar sacolas, canudos e copos plásticos de uso único evita o acúmulo de resíduos que levam séculos para se decompor."
       },
       {
         id: "q3",
-        shortLabel: "Q3 • Pilhas e Baterias",
-        question: "Onde devemos descartar pilhas velhas e baterias de celular?",
+        shortLabel: "Q3 • Reduzir",
+        question: "Qual hábito doméstico ajuda diretamente a 'Reduzir' o consumo de água e energia?",
         options: [
-          "No lixo comum da cozinha",
-          "Em coletores especiais de supermercados, lojas ou ecopontos",
-          "Na lixeira amarela de metal"
+          "Deixar aparelhos eletrônicos em modo stand-by e luzes acesas",
+          "Demorar mais no banho e deixar a torneira aberta ao escovar os dentes",
+          "Controlar o tempo no banho, fechar a torneira ao escovar os dentes e tirar aparelhos da tomada"
         ],
-        correct: 1,
-        explanation: "Pilhas e baterias têm substâncias tóxicas e precisam ser entregues em pontos de coleta específicos."
+        correct: 2,
+        explanation: "Reduzir 5 minutos no banho economiza dezenas de litros de água e tirar aparelhos da tomada evita o gasto do modo stand-by."
       },
       {
         id: "q4",
-        shortLabel: "Q4 • Restos de Frutas",
-        question: "Cascas de frutas, restos de legumes e borra de café pertencem a qual tipo de lixo?",
+        shortLabel: "Q4 • Reutilizar",
+        question: "O que devemos fazer com roupas, eletrônicos ou potes de vidro em bom estado para 'Reutilizar'?",
         options: [
-          "Lixo Orgânico (pode virar adubo)",
-          "Lixo Reciclável Plástico",
-          "Lixo Eletrônico"
+          "Jogar tudo no lixo comum para liberar espaço",
+          "Consertar ou doar itens em bom estado e reaproveitar potes de vidro para armazenar alimentos",
+          "Queimar as roupas velhas no quintal"
         ],
-        correct: 0,
-        explanation: "Restos de alimentos são resíduos orgânicos e podem ser reaproveitados na compostagem para fazer adubo."
+        correct: 1,
+        explanation: "Consertar, doar e reaproveitar potes de vidro prolonga o ciclo de vida dos produtos e evita a extração de novos recursos."
       },
       {
         id: "q5",
-        shortLabel: "Q5 • Caixa de Pizza Suja",
-        question: "Uma caixa de papelão muito engordurada com restos de pizza deve ir para:",
+        shortLabel: "Q5 • Reciclar",
+        question: "Qual prática é essencial na hora de 'Reciclar' o lixo em casa?",
         options: [
-          "Lixeira Azul (Papel reciclável)",
-          "Lixo Orgânico / Rejeito (comum)",
-          "Lixeira Amarela (Metal)"
+          "Misturar restos de comida com papel e plástico",
+          "Jogar pilhas, baterias e óleo de cozinha na pia ou no lixo comum",
+          "Separar os recicláveis limpos do orgânico e levar pilhas e óleo a pontos de coleta específicos"
         ],
-        correct: 1,
-        explanation: "Papel sujo com gordura ou comida não pode ser reciclado, pois estraga os outros papéis limpos."
+        correct: 2,
+        explanation: "Lavar rapidamente embalagens recicláveis evita contaminação, e pontos específicos garantem a logística reversa de pilhas e óleo."
       }
     ];
 
@@ -1373,49 +1293,6 @@
     // ==========================================
     // DADOS DO PROTÓTIPO ORIGINAL
     // ==========================================
-    const checklistData = [
-      {
-        r: "1. Repensar",
-        color: "emerald",
-        items: [
-          { id: "rep1", text: "Faço lista de compras antes de ir ao mercado para evitar compras por impulso.", tip: "Planejar refeições semanais reduz em até 30% o desperdício doméstico." },
-          { id: "rep2", text: "Pesquiso se a marca possui boas práticas ambientais antes de comprar.", tip: "Prefira empresas transparentes e evite o fast fashion." }
-        ]
-      },
-      {
-        r: "2. Recusar",
-        color: "teal",
-        items: [
-          { id: "rec1", text: "Recuso sacolas plásticas descartáveis e levo minha ecobag.", tip: "Deixe uma sacola dobrável sempre dentro da mochila ou do carro." },
-          { id: "rec2", text: "Evito copos, canudos e talheres plásticos de uso único.", tip: "Tenha uma garrafa reutilizável (squeeze) sempre por perto." }
-        ]
-      },
-      {
-        r: "3. Reduzir",
-        color: "cyan",
-        items: [
-          { id: "red1", text: "Controlo o tempo no banho e fecho a torneira ao escovar os dentes.", tip: "Reduzir 5 minutos no banho economiza dezenas de litros de água tratada." },
-          { id: "red2", text: "Apago luzes e tiro aparelhos eletrônicos da tomada quando não estão em uso.", tip: "O modo stand-by pode representar até 12% do consumo elétrico residencial." }
-        ]
-      },
-      {
-        r: "4. Reutilizar",
-        color: "amber",
-        items: [
-          { id: "reu1", text: "Conserto roupas e eletrônicos ou dôo itens em bom estado em vez de jogar fora.", tip: "Brechós e oficinas de reparo prolongam o ciclo de vida dos produtos." },
-          { id: "reu2", text: "Reaproveito potes de vidro e embalagens para armazenar alimentos.", tip: "Potes de vidro são duráveis, atóxicos e infinitamente recicláveis." }
-        ]
-      },
-      {
-        r: "5. Reciclar",
-        color: "lime",
-        items: [
-          { id: "rcy1", text: "Separo o lixo reciclável (papel, plástico, metal, vidro) do resíduo orgânico.", tip: "Lave rapidamente embalagens com restos de comida para não contaminar os recicláveis." },
-          { id: "rcy2", text: "Descarto pilhas, baterias, eletrônicos e óleo de cozinha em pontos de coleta específicos.", tip: "1 litro de óleo descartado na pia pode contaminar até 25 mil litros de água." }
-        ]
-      }
-    ];
-
     const wasteDatabase = [
       { name: "Garrafa PET e Embalagens Plásticas", cat: "reciclavel", bin: "Lixeira Vermelha (Plástico)", desc: "Retire o excesso de líquido, amasse para reduzir volume e encaminhe à coleta seletiva.", icon: "fa-bottle-water", color: "rose" },
       { name: "Papelão e Folhas de Papel", cat: "reciclavel", bin: "Lixeira Azul (Papel)", desc: "Mantenha secos e limpos. Papéis engordurados (como caixas de pizza sujas) devem ir para o orgânico.", icon: "fa-newspaper", color: "blue" },
@@ -1428,7 +1305,6 @@
       { name: "Isopor (EPS Limpo)", cat: "reciclavel", bin: "Lixeira Vermelha (Plástico)", desc: "O isopor é um tipo de plástico reciclável. Certifique-se de que esteja limpo e sem restos de alimentos.", icon: "fa-box", color: "rose" }
     ];
 
-    let checkedIds = new Set();
     let currentWasteCat = 'todos';
     let currentEconomyMode = 'linear';
     let quizIndex = 0;
@@ -1664,94 +1540,6 @@
     }
 
     // ==========================================
-    // CALCULADORA DOS 5 Rs
-    // ==========================================
-    function renderChecklist() {
-      const container = document.getElementById('checklist-container');
-      container.innerHTML = checklistData.map(group => `
-        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-stone-900 text-base">${group.r}</h3>
-            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-              ${group.items.filter(i => checkedIds.has(i.id)).length}/${group.items.length}
-            </span>
-          </div>
-          <div class="space-y-2.5">
-            ${group.items.map(item => {
-              const isChecked = checkedIds.has(item.id);
-              return `
-                <label onclick="toggleCheck('${item.id}')" class="flex items-start gap-3.5 p-3 rounded-xl border cursor-pointer transition-all ${isChecked ? 'bg-emerald-50/70 border-emerald-400' : 'bg-stone-50/60 border-stone-200 hover:bg-stone-100/70'}">
-                  <div class="mt-0.5 w-5 h-5 rounded-md flex items-center justify-center border transition-colors shrink-0 ${isChecked ? 'bg-emerald-600 border-emerald-600 text-white' : 'bg-white border-stone-300'}">
-                    ${isChecked ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
-                  </div>
-                  <span class="text-sm leading-snug ${isChecked ? 'text-stone-900 font-medium' : 'text-stone-700'}">${item.text}</span>
-                </label>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      `).join('');
-      updateScore();
-    }
-
-    function toggleCheck(id) {
-      if (checkedIds.has(id)) {
-        checkedIds.delete(id);
-      } else {
-        checkedIds.add(id);
-      }
-      renderChecklist();
-    }
-
-    function resetChecklist() {
-      checkedIds.clear();
-      renderChecklist();
-      showToast('Checklist reiniciado.');
-    }
-
-    function updateScore() {
-      const totalItems = 10;
-      const count = checkedIds.size;
-      const pct = Math.round((count / totalItems) * 100);
-
-      // Atualizar círculo SVG
-      const circumference = 351.8;
-      const offset = circumference - (pct / 100) * circumference;
-      document.getElementById('score-circle').style.strokeDashoffset = offset;
-      document.getElementById('score-percent').textContent = `${pct}%`;
-
-      // Atualizar impacto anual estimado
-      document.getElementById('impact-water').textContent = `${(count * 1450).toLocaleString('pt-BR')} L`;
-      document.getElementById('impact-co2').textContent = `${count * 38} kg`;
-      document.getElementById('impact-plastic').textContent = `${count * 45} un`;
-
-      // Atualizar classificação
-      const titleEl = document.getElementById('score-title');
-      const descEl = document.getElementById('score-desc');
-
-      if (pct === 0) {
-        titleEl.textContent = "Iniciante Consciente";
-        descEl.textContent = "Marque os hábitos que você já pratica para calcular seu índice.";
-      } else if (pct <= 40) {
-        titleEl.textContent = "Primeiros Passos";
-        descEl.textContent = "Você já começou a mudar hábitos! Pequenas escolhas diárias geram grande impacto.";
-      } else if (pct <= 70) {
-        titleEl.textContent = "Consumidor Consciente";
-        descEl.textContent = "Ótimo progresso! Você aplica boa parte dos 5 Rs e reduz significativamente seus resíduos.";
-      } else {
-        titleEl.textContent = "Embaixador(a) Circular";
-        descEl.textContent = "Excelente! Seu estilo de vida está altamente alinhado com o ODS 12 da ONU.";
-      }
-
-      // Sugerir próxima dica de um item não marcado
-      const allItems = checklistData.flatMap(g => g.items);
-      const nextUnchecked = allItems.find(i => !checkedIds.has(i.id));
-      document.getElementById('next-tip').textContent = nextUnchecked
-        ? nextUnchecked.tip
-        : "Parabéns! Você domina todos os 5 Rs. Compartilhe essas práticas com sua comunidade!";
-    }
-
-    // ==========================================
     // GUIA DE DESCARTE
     // ==========================================
     function setWasteCategory(cat) {
@@ -1824,7 +1612,6 @@
 
     // Inicialização
     window.addEventListener('DOMContentLoaded', () => {
-      renderChecklist();
       setEconomyMode('linear');
       filterWaste();
     });
